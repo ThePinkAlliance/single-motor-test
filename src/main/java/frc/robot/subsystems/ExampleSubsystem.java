@@ -15,8 +15,8 @@ public class ExampleSubsystem extends SubsystemBase {
 
   /** Creates a new ExampleSubsystem. */
   public ExampleSubsystem() {
-    this.max = new CANSparkMax(0, MotorType.kBrushless);
-    this.maxTwo = new CANSparkMax(1, MotorType.kBrushless);
+    this.max = new CANSparkMax(50, MotorType.kBrushless);
+    this.maxTwo = new CANSparkMax(51, MotorType.kBrushless);
   }
 
   public void drive(double power) {

@@ -9,9 +9,9 @@ import java.util.function.DoubleSupplier;
 import edu.wpi.first.wpilibj.GenericHID;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.XboxController;
+import edu.wpi.first.wpilibj2.command.Command;
 import frc.robot.commands.ExampleCommand;
 import frc.robot.subsystems.ExampleSubsystem;
-import edu.wpi.first.wpilibj2.command.Command;
 
 /**
  * This class is where the bulk of the robot should be declared. Since
@@ -44,7 +44,7 @@ public class RobotContainer {
    * edu.wpi.first.wpilibj2.command.button.JoystickButton}.
    */
   private void configureButtonBindings() {
-    m_exampleSubsystem.setDefaultCommand(new ExampleCommand(m_exampleSubsystem, () -> gamepad.getY()));
+    m_exampleSubsystem.setDefaultCommand(new ExampleCommand(m_exampleSubsystem, () -> gamepad.getRawAxis(1)));
   }
 
   /**
@@ -52,4 +52,7 @@ public class RobotContainer {
    *
    * @return the command to run in autonomous
    */
+  public Command auto() {
+    return new ExampleCommand(m_exampleSubsystem, () -> gamepad.getRawAxis(1));
+  }
 }
