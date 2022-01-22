@@ -11,14 +11,17 @@ import edu.wpi.first.wpilibj2.command.SubsystemBase;
 public class ExampleSubsystem extends SubsystemBase {
   // Encoder encoder;
   CANSparkMax max;
+  CANSparkMax maxTwo;
 
   /** Creates a new ExampleSubsystem. */
   public ExampleSubsystem() {
     this.max = new CANSparkMax(0, MotorType.kBrushless);
+    this.maxTwo = new CANSparkMax(1, MotorType.kBrushless);
   }
 
   public void drive(double power) {
     this.max.set(power);
+    this.maxTwo.set(power);
   }
 
   @Override
