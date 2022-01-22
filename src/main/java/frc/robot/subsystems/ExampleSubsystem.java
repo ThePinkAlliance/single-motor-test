@@ -4,11 +4,26 @@
 
 package frc.robot.subsystems;
 
+import java.util.function.DoubleSupplier;
+
+import com.revrobotics.CANSparkMax;
+import com.revrobotics.CANSparkMaxLowLevel.MotorType;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
 public class ExampleSubsystem extends SubsystemBase {
+  // Encoder encoder;
+  CANSparkMax max;
+  DoubleSupplier power;
+
   /** Creates a new ExampleSubsystem. */
-  public ExampleSubsystem() {}
+  public ExampleSubsystem() {
+    this.max = new CANSparkMax(0, MotorType.kBrushed);
+    this.power = power;
+  }
+
+  public void drive(double power) {
+    this.max.set(power);
+  }
 
   @Override
   public void periodic() {
